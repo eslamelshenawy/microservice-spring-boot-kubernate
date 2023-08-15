@@ -1,0 +1,5 @@
+/home/work/spring-boot-security-kubernate-zull/user-service/src/main/java/vmware/services/user/model/User.java
+/home/work/spring-boot-security-kubernate-zull/user-service/src/main/java/vmware/services/user/UserApplication.java
+/home/work/spring-boot-security-kubernate-zull/user-service/src/main/java/vmware/services/user/config/RibbonConfiguration.java
+/home/work/spring-boot-security-kubernate-zull/user-service/src/main/java/vmware/services/user/repository/UserRepository.java
+/home/work/spring-boot-security-kubernate-zull/user-service/src/main/java/vmware/services/user/controller/UserController.java
