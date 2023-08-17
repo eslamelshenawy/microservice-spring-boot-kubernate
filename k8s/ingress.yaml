@@ -28,6 +28,13 @@ spec:
             port:
               number: 8080
         pathType: Prefix
+      - path: /db
+        backend:
+           service:
+            name: db
+            port:
+              number: 8080
+        pathType: Prefix
       - path: /gateway
         backend:
           service:

@@ -96,6 +96,9 @@ kubectl create namespace
 ```bash to collect the logs from the pod
 kubectl logs <pod_name> -n <namespace_name>
 ```
+```bash to collect the logs from the pod
+ sudo service orcale-xe start
+ ```
 
 ```
 

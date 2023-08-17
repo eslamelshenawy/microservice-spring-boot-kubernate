@@ -31,6 +31,11 @@ mvn clean
 mvn package
 docker build -t vmware/user:1.1 .
 cd ..
+cd db-service
+mvn clean
+mvn package
+docker build -t vmware/db:1.1 .
+cd ..
 
 docker images
 

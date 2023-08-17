@@ -30,4 +30,9 @@ public class OrganizationController {
 	public ResponseEntity<Response<Optional<Organization>>> findById(@PathVariable("id") Long id) {
 		return organizationService.getOrganizationById(id);
 	}
+
+	@GetMapping("/{id}/with-employees")
+	public ResponseEntity<Response<Optional<Organization>>> findByIdWithEmployees(@PathVariable("id") Long id) {
+		return organizationService.findByIdWithEmployees(id);
+	}
 }

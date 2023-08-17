@@ -8,6 +8,9 @@ import vmware.services.organization.util.Constant;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,5 +27,7 @@ public class Organization {
 	private String name;
 	@NotBlank(message = Constant.NOT_BLANK + "  .. address")
 	private String address;
+	@OneToMany(mappedBy="organization")
+	private Set<Employee> employees;
 
 }

@@ -5,10 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import vmware.services.organization.client.EmployeeClient;
+import vmware.services.organization.controller.OrganizationController;
 import vmware.services.organization.exceptions.RuntimeBusinessException;
 import vmware.services.organization.entity.Organization;
 import vmware.services.organization.repository.OrganizationRepository;
 import vmware.services.organization.response.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static vmware.services.organization.exceptions.ErrorCodes.*;
 
@@ -21,8 +25,13 @@ import static org.springframework.http.HttpStatus.NOT_ACCEPTABLE;
 @RequiredArgsConstructor
 @Transactional(rollbackFor = {RuntimeBusinessException.class, Exception.class})
 public class OrganizationService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrganizationController.class);
+
     @Autowired
     private OrganizationRepository organizationRepository;
+    @Autowired
+    EmployeeClient employeeClient;
 
     public ResponseEntity<Response<Boolean>> addOrganization(Organization input) {
         organizationRepository.save(input);
@@ -40,6 +49,19 @@ public class OrganizationService {
 
         Optional<Organization> organization = Optional.ofNullable(organizationRepository.findById(orgId)
                 .orElseThrow(() -> new RuntimeBusinessException(NOT_ACCEPTABLE, org$0001, orgId)));
+        Response<Optional<Organization>> response = Response.<Optional<Organization>>builder().ResponseCode(200).ResponseMessage("organization ").data(organization).build();
+        return ResponseEntity.ok(response);
+    }
+
+    public ResponseEntity<Response<Optional<Organization>>> findByIdWithEmployees(Long id) {
+        LOGGER.info("Organization find: id={}", id);
+        Optional<Organization> organization = organizationRepository.findById(id);
+        if (organization.isPresent()) {
+            Organization o = organization.get();
+            o.setEmployees(employeeClient.findByOrganization(o.getId()));
+        } else {
+            return null;
+        }
         Response<Optional<Organization>> response = Response.<Optional<Organization>>builder().ResponseCode(200).ResponseMessage("organization ").data(organization).build();
         return ResponseEntity.ok(response);
     }

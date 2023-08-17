@@ -7,6 +7,7 @@ vmware/services/organization/exceptions/BusinessException.class
 vmware/services/organization/util/StringUtils.class
 vmware/services/organization/constatnts/TestCommons.class
 vmware/services/organization/OrganizationApplication.class
+vmware/services/organization/client/EmployeeClient.class
 vmware/services/organization/config/RibbonConfiguration.class
 vmware/services/organization/controller/OrganizationController.class
 vmware/services/organization/service/OrganizationService.class
@@ -16,5 +17,6 @@ vmware/services/organization/repository/OrganizationRepository.class
 vmware/services/organization/entity/Organization.class
 vmware/services/organization/exceptions/EntityValidationException.class
 vmware/services/organization/exceptions/ErrorCodes.class
+vmware/services/organization/entity/Employee.class
 vmware/services/organization/exceptions/RuntimeBusinessException.class
 vmware/services/organization/response/Response.class

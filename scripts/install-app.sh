@@ -15,6 +15,7 @@ kubectl config use-context $CLUSTER1_NAME
 kubectl apply  -f organization-deployment.yaml
 kubectl apply  -f user-deployment.yaml
 kubectl apply  -f gateway-deployment.yaml
+kubectl apply  -f db-service-deployment.yaml
 kubectl apply  -f ingress.yaml
 
 # set Minikupe IP for microservices-cluster.info in /etc/hosts
