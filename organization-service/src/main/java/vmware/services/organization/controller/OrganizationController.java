@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import vmware.services.organization.entity.Organization;
 import vmware.services.organization.response.Response;
 import vmware.services.organization.service.OrganizationService;
+import static vmware.services.organization.config.Translator.translate;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -16,6 +17,12 @@ public class OrganizationController {
 
 	@Autowired
 	OrganizationService organizationService;
+
+	@GetMapping("/message")
+	public String getMessage(){
+		return translate("message.greeting");
+	}
+
 	@PostMapping("/add")
 	public ResponseEntity<Response<Boolean>> addOrganization(@Valid  @RequestBody Organization organization) {
 		return organizationService.addOrganization(organization);

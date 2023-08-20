@@ -28,22 +28,6 @@ public class JWTTokenProvider implements Serializable {
     public String generateToken(UserPrincipal userPrincipal){
         Map<String, Object> claims = new HashMap<>();
         return doGenerateToken(claims, userPrincipal.getUsername());
-
-//        List<String> roles = userPrincipal
-//                .getAuthorities()
-//                .stream()
-//                .map(GrantedAuthority::getAuthority)
-//                .collect(Collectors.toList());
-//
-//        return Jwts
-//                .builder()
-//                .setIssuer("Demo App")
-//                .setSubject(userPrincipal.getUsername())
-//                .setIssuedAt(new Date())
-//                .setExpiration(new Date(new Date().getTime() + jwtExpirationInMs * 10000))
-//                .claim("Roles", roles)
-//                .signWith(SignatureAlgorithm.HS512, jwtSecret)
-//                .compact();
     }
     private String doGenerateToken(Map<String, Object> claims, String subject) {
 
