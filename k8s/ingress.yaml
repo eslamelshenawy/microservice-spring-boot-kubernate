@@ -14,17 +14,10 @@ spec:
   - host: microservices-cluster.info
     http:
       paths:
-      - path: /organization
+      - path: /selfservice
         backend:
            service:
-            name: organization
-            port:
-              number: 8080
-        pathType: Prefix
-      - path: /user
-        backend:
-           service:
-            name: user
+            name: selfservice
             port:
               number: 8080
         pathType: Prefix

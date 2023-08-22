@@ -1,5 +1,0 @@
-/home/work/new/microservice-spring-boot-kubernate/user-service/src/main/java/vmware/services/user/UserApplication.java
-/home/work/new/microservice-spring-boot-kubernate/user-service/src/main/java/vmware/services/user/repository/UserRepository.java
-/home/work/new/microservice-spring-boot-kubernate/user-service/src/main/java/vmware/services/user/model/User.java
-/home/work/new/microservice-spring-boot-kubernate/user-service/src/main/java/vmware/services/user/config/RibbonConfiguration.java
-/home/work/new/microservice-spring-boot-kubernate/user-service/src/main/java/vmware/services/user/controller/UserController.java

@@ -19,22 +19,18 @@ fi
 
 docker login
 
-cd ../$SCRIPT_DIR/organization-service
+cd ../$SCRIPT_DIR/selfService
 docker build -f ${DEBUG_DOCKERFILE_NAME} -t vmware/organization${DEBUG_IMAGE_SUFFIX}:$APP_VER .
 docker tag vmware/organization${DEBUG_IMAGE_SUFFIX}:$APP_VER $REPO_USER/organization${DEBUG_IMAGE_SUFFIX}:$APP_VER
 docker push $REPO_USER/organization${DEBUG_IMAGE_SUFFIX}:$APP_VER
 
-cd ../$SCRIPT_DIR/user-service
-docker build -f ${DEBUG_DOCKERFILE_NAME} -t vmware/user${DEBUG_IMAGE_SUFFIX}:$APP_VER .
-docker tag vmware/user${DEBUG_IMAGE_SUFFIX}:$APP_VER $REPO_USER/user${DEBUG_IMAGE_SUFFIX}:$APP_VER
-docker push $REPO_USER/user${DEBUG_IMAGE_SUFFIX}:$APP_VER
 
-cd ../$SCRIPT_DIR/db-service
+cd ../$SCRIPT_DIR/dataService
 docker build -f ${DEBUG_DOCKERFILE_NAME} -t vmware/db${DEBUG_IMAGE_SUFFIX}:$APP_VER .
 docker tag vmware/db${DEBUG_IMAGE_SUFFIX}:$APP_VER $REPO_USER/db${DEBUG_IMAGE_SUFFIX}:$APP_VER
 docker push $REPO_USER/db${DEBUG_IMAGE_SUFFIX}:$APP_VER
 
-cd ../$SCRIPT_DIR/gateway-service
+cd ../$SCRIPT_DIR/selfServiceGateway
 docker build -f ${DEBUG_DOCKERFILE_NAME} -t vmware/gateway${DEBUG_IMAGE_SUFFIX}:$APP_VER .
 docker tag vmware/gateway${DEBUG_IMAGE_SUFFIX}:$APP_VER $REPO_USER/gateway${DEBUG_IMAGE_SUFFIX}:$APP_VER
 docker push $REPO_USER/gateway${DEBUG_IMAGE_SUFFIX}:$APP_VER

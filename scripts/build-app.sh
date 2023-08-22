@@ -17,21 +17,16 @@ docker images
 mvn clean
 mvn package
 
-cd gateway-service
+cd selfServiceGateway
 docker build -t vmware/gateway:1.1 .
 cd ..
 
-cd organization-service
+cd selfService
 mvn clean
 mvn package
-docker build -t vmware/organization:1.1 .
+docker build -t vmware/selfservice:1.1 .
 cd ..
-cd user-service
-mvn clean
-mvn package
-docker build -t vmware/user:1.1 .
-cd ..
-cd db-service
+cd dataService
 mvn clean
 mvn package
 docker build -t vmware/db:1.1 .

@@ -12,8 +12,7 @@ cd ../k8s
 
 kubectl config use-context $CLUSTER1_NAME
 
-kubectl apply  -f organization-deployment.yaml
-kubectl apply  -f user-deployment.yaml
+kubectl apply  -f selfService-deployment.yaml
 kubectl apply  -f gateway-deployment.yaml
 kubectl apply  -f db-service-deployment.yaml
 kubectl apply  -f ingress.yaml
