@@ -26,8 +26,6 @@ import org.springframework.web.multipart.support.MissingServletRequestPartExcept
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.web.util.ContentCachingRequestWrapper;
-import vmware.services.gateway.entity.User;
-import vmware.services.gateway.response.Response;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.AbstractMap;
