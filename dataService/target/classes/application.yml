@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@144.24.221.114:1521:ebs_ebsdb
+    username: xxmob
+    password: xxmob

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="b9ffecb2-427b-43d5-acdc-a0d16b775e39" name="com.it-ranks" url="jdbc:oracle:thin:@144.24.221.114:1521:ebs_ebsdb" driverClass="oracle.jdbc.OracleDriver" />
+    </data-sources>
+  </component>
+</project>
