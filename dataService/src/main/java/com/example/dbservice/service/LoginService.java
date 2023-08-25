@@ -1,13 +1,16 @@
 package com.example.dbservice.service;
 
 import com.example.dbservice.dto.LoginRequest;
+import com.example.dbservice.model.Employee;
 import com.example.dbservice.procedure.LoginProcedure;
 import com.example.dbservice.repository.LanguageRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -19,9 +22,21 @@ public class LoginService {
     @Autowired
     private LoginProcedure loginProcedure;
 
-    public Map<String, Object> Login(LoginRequest loginRequest , String lang) {
+    public Map<String, Object> Login(LoginRequest loginRequest, String lang) {
         LOGGER.info("entry login ", ".......login function");
-        Map<String, Object> result = loginProcedure.validateLogin(loginRequest ,lang);
+        Employee employeeDate = repository.getEmployeeData();
+        Map<String, Object> result = loginProcedure.validateLogin(loginRequest, lang);
+        result.put("employeeDate", employeeDate);
         return result;
+    }
+
+    public void setSession(String lang, Integer pUserId) {
+        LOGGER.info("set session ", ".......Set Session");
+        loginProcedure.alterSession(lang, pUserId);
+    }
+
+    public Employee getInfo(Integer pUserId) {
+        LOGGER.info("get info ", ".......get info");
+        return loginProcedure.getInfo(pUserId);
     }
 }

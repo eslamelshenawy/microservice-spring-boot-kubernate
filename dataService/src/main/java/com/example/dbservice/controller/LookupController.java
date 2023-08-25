@@ -20,7 +20,7 @@ public class LookupController {
     LanguageService languageService;
 
     @GetMapping("/languages")
-    public List<Language> findById() {
+    public List<Language> getLanguages() {
         return languageService.AllLanguage();
     }
 

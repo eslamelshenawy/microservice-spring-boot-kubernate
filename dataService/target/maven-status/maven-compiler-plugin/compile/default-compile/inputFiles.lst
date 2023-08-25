@@ -1,10 +1,10 @@
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/exceptions/ProcessCancelException.java
-/home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/model/User.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/DataServiceApplication.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/constatnts/EntityConstants.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/exceptions/ErrorResponseDTO.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/exceptions/ErrorResponseHandler.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/util/StringUtils.java
+/home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/procedure/LoginProcedure.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/exceptions/RuntimeBusinessException.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/config/CustomLocaleResolver.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/constatnts/TestCommons.java
@@ -14,6 +14,7 @@
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/exceptions/BusinessException.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/dto/LanguageDTO.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/service/LoginService.java
+/home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/model/Employee.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/exceptions/ErrorCodes.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/service/LanguageService.java
 /home/work/new/com.it-ranks/dataService/src/main/java/com/example/dbservice/repository/LanguageRepository.java

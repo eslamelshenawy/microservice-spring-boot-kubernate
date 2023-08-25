@@ -26,7 +26,7 @@ import static java.util.Optional.ofNullable;
 import static org.springframework.http.HttpHeaders.SET_COOKIE;
 
 public class TestCommons {
-	private static final String PROPERTIES_FILE_PATH = "test.database.properties";
+    private static final String PROPERTIES_FILE_PATH = "test.database.properties";
 
 
     public static String BaseURL = "";
@@ -39,7 +39,7 @@ public class TestCommons {
         return new HttpEntity<>(body, headers);
     }
 
-    public static HttpEntity<Object> getHttpEntity(String json, String authToken ,String lang) {
+    public static HttpEntity<Object> getHttpEntity(String json, String authToken, String lang) {
         HttpHeaders headers = getHeaders(authToken);
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set(HttpHeaders.ACCEPT_LANGUAGE, lang);
@@ -50,6 +50,12 @@ public class TestCommons {
         HttpHeaders headers = getHeaders(authToken);
         headers.setContentType(MediaType.APPLICATION_JSON);
         return new HttpEntity<>(headers);
+    }
+    public static HttpEntity<Object> getHttpEntity(String json, String lang) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set(HttpHeaders.ACCEPT_LANGUAGE, lang);
+        return new HttpEntity<>(json, headers);
     }
 
     public static HttpEntity<Object> getHttpEntity(MultiValueMap<String, String> parameters, String authToken) {
@@ -65,70 +71,53 @@ public class TestCommons {
         headers.add("User-Token", authToken);
         return headers;
     }
-
     public static HttpEntity<Object> getHttpEntity(MultiValueMap<?, ?> json, String authToken, MediaType type) {
         HttpHeaders headers = getHeaders(authToken);
         headers.setContentType(type);
         return new HttpEntity<>(json, headers);
     }
 
-
-
-
-
     /**
      * jdbi is a library for simplifying running sql
-     * */
+     */
     public static Jdbi getJdbi() {
-    	Properties props = getConnectionProps();
+        Properties props = getConnectionProps();
 
-    	String url = props.getProperty("db.uri");
-		String username = props.getProperty("db.user");
-		String password = props.getProperty("db.password");
+        String url = props.getProperty("db.uri");
+        String username = props.getProperty("db.user");
+        String password = props.getProperty("db.password");
 
-		return Jdbi.create(url, username, password);
+        return Jdbi.create(url, username, password);
     }
 
-
-
-
-
     private static Properties getConnectionProps() {
-		Properties properties = new Properties();
-
-		try (InputStream in = new ClassPathResource(PROPERTIES_FILE_PATH).getInputStream()) {
-			if(in == null) {
-				String msg = ">>> Failed to read database properties file at [" + PROPERTIES_FILE_PATH + "] ...";
-				throw new IllegalStateException(msg);
-			}
-
-			properties.load(in);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return properties;
-	}
-
+        Properties properties = new Properties();
+        try (InputStream in = new ClassPathResource(PROPERTIES_FILE_PATH).getInputStream()) {
+            if (in == null) {
+                String msg = ">>> Failed to read database properties file at [" + PROPERTIES_FILE_PATH + "] ...";
+                throw new IllegalStateException(msg);
+            }
+            properties.load(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return properties;
+    }
 
 
     public static JSONObject json() {
-    	return new JSONObject();
+        return new JSONObject();
     }
-
-
 
 
     public static JSONArray jsonArray() {
-    	return new JSONArray();
+        return new JSONArray();
     }
 
 
-
-
-    public static String readResource(Resource resource, String encoding){
+    public static String readResource(Resource resource, String encoding) {
         try {
-            return new String( Files.readAllBytes(resource.getFile().toPath()), encoding);
+            return new String(Files.readAllBytes(resource.getFile().toPath()), encoding);
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException();
@@ -140,37 +129,19 @@ public class TestCommons {
     }
 
 
-
     public static Optional<String> extractAuthTokenFromCookies(ResponseEntity<?> response) {
-		return
-			ofNullable(response)
-			.map(ResponseEntity::getHeaders)
-			.map(headers -> headers.getFirst(SET_COOKIE))
-			.map(TestCommons::readCookie)
-			.filter(cookie -> Objects.equals(cookie.get().getName(), EntityConstants.TOKEN_HEADER))
-			.map(Optional::get)
-			.map(Cookie::getValue);
-	}
+        return ofNullable(response).map(ResponseEntity::getHeaders).map(headers -> headers.getFirst(SET_COOKIE)).map(TestCommons::readCookie).filter(cookie -> Objects.equals(cookie.get().getName(), EntityConstants.TOKEN_HEADER)).map(Optional::get).map(Cookie::getValue);
+    }
 
 
-
-	private static Optional<Cookie> readCookie(String cookieStr){
-		return ofNullable(cookieStr)
-				.map(allCookieStr -> asList(allCookieStr.split(";")))
-				.orElse(emptyList())
-				.stream()
-				.map(cookieField -> cookieField.trim().split("="))
-				.filter(parts -> parts.length == 2)
-				.map(parts -> new Cookie(parts[0], parts[1]))
-				.findFirst();
-	}
-
+    private static Optional<Cookie> readCookie(String cookieStr) {
+        return ofNullable(cookieStr).map(allCookieStr -> asList(allCookieStr.split(";"))).orElse(emptyList()).stream().map(cookieField -> cookieField.trim().split("=")).filter(parts -> parts.length == 2).map(parts -> new Cookie(parts[0], parts[1])).findFirst();
+    }
 
 
     public static String readResourceFileAsString(Resource resource) throws IOException {
-        return new String( readResourceFileBytes(resource) );
+        return new String(readResourceFileBytes(resource));
     }
-
 
 
     public static byte[] readResourceFileBytes(Resource resource) throws IOException {
@@ -178,18 +149,16 @@ public class TestCommons {
     }
 
 
-
-    public static JSONArray toJsonArray(Collection<?> collection){
+    public static JSONArray toJsonArray(Collection<?> collection) {
         JSONArray array = jsonArray();
         collection.forEach(array::put);
         return array;
     }
 
 
-    public static Object nullableJsonValue(Object value){
+    public static Object nullableJsonValue(Object value) {
         return isNull(value) ? JSONObject.NULL : value;
     }
-
 
 
     public static Path getTempDirectory() {
