@@ -24,26 +24,4 @@ public class DataServiceApplicationTest {
     public void contextLoads() {
 
     }
-//    @Autowired
-//    private TestRestTemplate template;
-//
-//    @org.junit.Test
-//    public void testFindAll() {
-////        ResponseEntity<Response<List<Organization>>> res = template
-////                .exchange(
-////                        "/organization/all",
-////                        HttpMethod.GET,
-////                        null,
-////                        new ParameterizedTypeReference<Response<List<Organization>>>(){});
-//        assertEquals(HttpStatus.OK,200);
-////        assertTrue( res.getBody().getData().size() > 0 );
-//
-//    }
-//
-//    @Configuration
-//    public static class TestConfiguration {
-//
-//    }
-//
-//
 }

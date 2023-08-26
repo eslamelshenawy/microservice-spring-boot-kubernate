@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import vmware.services.gateway.config.auth.AuthenticateRequest;
 import vmware.services.gateway.config.auth.JwtAuthenticationResponse;
 import vmware.services.gateway.config.auth.UserPrincipal;
-import vmware.services.gateway.dto.LoginRequest;
 import vmware.services.gateway.entity.User;
 import vmware.services.gateway.exceptions.RuntimeBusinessException;
 import vmware.services.gateway.repository.UserRepository;
@@ -35,28 +34,19 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private static AuthenticationManager authenticationManager;
+    private  AuthenticationManager authenticationManager;
     @Autowired
-    private static JWTTokenProvider jwtTokenProvider;
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
+    private  JWTTokenProvider jwtTokenProvider;
+    private  final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
-    public static ResponseEntity Login(LoginRequest loginRequest, String lang, AuthenticateRequest authenticateRequest) {
+    public  ResponseEntity Login(AuthenticateRequest authenticateRequest, String lang) {
         LOGGER.info("entry login ", ".......login function");
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticateRequest.getUserName(), authenticateRequest.getPassword()));
         String token =jwtTokenProvider.generateToken((UserPrincipal) authentication.getPrincipal());
         log.info("Token Created {}",token);
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
-
     }
 
-    public static ResponseEntity Login2(LoginRequest loginRequest, String lang, AuthenticateRequest authenticateRequest) {
-        LOGGER.info("entry login ", ".......login function");
-        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticateRequest.getUserName(), authenticateRequest.getPassword()));
-        String token =jwtTokenProvider.generateToken((UserPrincipal) authentication.getPrincipal());
-        log.info("Token Created {}",token);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
-
-    }
     public ResponseEntity<Response<User>> addUser(User input) {
         // Check if the email already exists in the database
         Optional<User> existingUser = userRepository.findByEmail(input.getEmail());

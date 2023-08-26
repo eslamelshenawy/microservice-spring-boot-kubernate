@@ -1,3 +1,3 @@
-/home/work/new/com.it-ranks/selfService/src/test/java/vmware/services/organization/OrganizationApplicationTest.java
-/home/work/new/com.it-ranks/selfService/src/test/java/vmware/services/organization/web/AbstractTestWithTempBaseDir.java
-/home/work/new/com.it-ranks/selfService/src/test/java/vmware/services/organization/web/OrganizationControllerTests.java
+/home/work/new/com.it-ranks/selfService/src/test/java/vmware/services/gateway/web/OrganizationControllerTests.java
+/home/work/new/com.it-ranks/selfService/src/test/java/vmware/services/gateway/OrganizationApplicationTest.java
+/home/work/new/com.it-ranks/selfService/src/test/java/vmware/services/gateway/web/AbstractTestWithTempBaseDir.java

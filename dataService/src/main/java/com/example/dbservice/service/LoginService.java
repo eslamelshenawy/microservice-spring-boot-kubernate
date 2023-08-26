@@ -24,9 +24,7 @@ public class LoginService {
 
     public Map<String, Object> Login(LoginRequest loginRequest, String lang) {
         LOGGER.info("entry login ", ".......login function");
-        Employee employeeDate = repository.getEmployeeData();
         Map<String, Object> result = loginProcedure.validateLogin(loginRequest, lang);
-        result.put("employeeDate", employeeDate);
         return result;
     }
 

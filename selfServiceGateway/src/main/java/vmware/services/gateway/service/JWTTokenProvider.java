@@ -59,6 +59,9 @@ public class JWTTokenProvider implements Serializable {
     public String getUserNameFromToken(String token){
         return  Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
     }
+    public String getPasswordFromToken(String token){
+        return  Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
+    }
 
 
 }

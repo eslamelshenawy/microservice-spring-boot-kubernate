@@ -18,20 +18,12 @@ import java.util.Map;
 public class UserAuthDetailsService implements UserDetailsService {
 
     @Autowired
-    private  UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
     private HttpServletRequest request;
-    @Autowired
-    private DBClient dbClient;
 
     @Override
     public UserPrincipal loadUserByUsername(String s) throws UsernameNotFoundException {
-        // Get the "accept-language" header
-        String acceptLanguage = request.getHeader("accept-language");
-        // Get the request body as LoginRequest
-        LoginRequest loginRequest = (LoginRequest) ((Map<?, ?>) request.getAttribute(HandlerMapping.URI_TEMPLATE_VARIABLES_ATTRIBUTE))
-                .get("loginRequest");
-        Map<String, Object> employeeDate = dbClient.login(loginRequest,acceptLanguage);
         User user = userRepository.findByEmail(s)
                 .orElseThrow(() -> new UsernameNotFoundException("User name " + s + "Not Found in DB"));
         return UserPrincipal.create(user);

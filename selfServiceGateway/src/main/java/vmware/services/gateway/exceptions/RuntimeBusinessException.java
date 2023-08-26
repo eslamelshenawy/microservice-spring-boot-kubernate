@@ -36,7 +36,11 @@ public class RuntimeBusinessException extends RuntimeException implements Busine
         this.errorCode = errorCode;
         this.httpStatus = httpStatus;
     }
-    
+    public RuntimeBusinessException(String errorMessage) {
+    	super(errorMessage);
+        this.errorMessage = errorMessage;
+    }
+
     
 
     public RuntimeBusinessException(String errorMessage, String errorCode, HttpStatus httpStatus, Throwable cause) {

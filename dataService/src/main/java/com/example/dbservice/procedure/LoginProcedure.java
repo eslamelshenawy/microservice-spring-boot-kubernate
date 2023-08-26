@@ -29,7 +29,7 @@ public class LoginProcedure {
             @Override
             public CallableStatement execute(Connection connection) throws SQLException {
                 CallableStatement function = connection.prepareCall(statement);
-                function.setString(2, loginRequest.getUsername());
+                function.setString(2, loginRequest.getUserName());
                 function.setString(3, loginRequest.getPassword());
                 function.setString(4, lang);
                 function.registerOutParameter(5, Types.NUMERIC);
@@ -44,9 +44,11 @@ public class LoginProcedure {
             result.put("p_user_id", callableStatement.getInt(5));
             result.put("result", callableStatement.getString(1));
             int pUserId = (int) result.get("p_user_id");
-            alterSession(lang, pUserId);
-            Employee info = getInfo(pUserId);
-            result.put("employeeData", info);
+            if (pUserId != 0) {
+                alterSession(lang, pUserId);
+                Employee info = getInfo(pUserId);
+                result.put("employeeData", info);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

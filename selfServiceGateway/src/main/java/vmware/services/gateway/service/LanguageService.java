@@ -22,7 +22,7 @@ public class LanguageService {
     public ResponseEntity<Response<List<Language>>> AllLanguage() {
         LOGGER.info("LanguageService ", ".......getLanguages");
         List<Language> languages = dbClient.getLanguages();
-        Response<List<Language>> response = Response.<List<Language>>builder().ResponseMessage("success add User").data(languages).ResponseCode(200).build();
+        Response<List<Language>> response = Response.<List<Language>>builder().ResponseMessage("success").data(languages).ResponseCode(200).build();
         return ResponseEntity.ok(response);
     }
 

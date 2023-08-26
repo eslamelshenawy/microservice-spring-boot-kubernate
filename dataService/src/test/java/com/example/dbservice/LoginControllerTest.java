@@ -40,7 +40,8 @@ public class LoginControllerTest {
         JSONObject requestJson = createNewDummyLoginRequestFailed();
         HttpEntity<?> request = getHttpEntity(requestJson.toString(), "NOT FOUND", "ARABIC");
         ResponseEntity<String> res = template.exchange("/Login", POST, request, String.class);
-        assertEquals(HttpStatus.valueOf(500), res.getStatusCode());
+        assertEquals(HttpStatus.valueOf(200), res.getStatusCode());
+        assertEquals("{\"result\":\"فشل تسجيل الدخول. رجاء التأكد من معلومات الدخول أو الاتصال بمسئول النظام\",\"p_user_id\":0}", res.getBody());
     }
 
     @Test
@@ -62,7 +63,7 @@ public class LoginControllerTest {
 
     private JSONObject createNewDummyLoginRequestSuccess() throws JSONException {
         JSONObject loginRequest = new JSONObject();
-        loginRequest.put("username", "A.RADWAN");
+        loginRequest.put("userName", "A.RADWAN");
         loginRequest.put("password", "R123456");
         return loginRequest;
 
@@ -70,7 +71,7 @@ public class LoginControllerTest {
 
     private JSONObject createNewDummyLoginRequestFailed() throws JSONException {
         JSONObject loginRequest = new JSONObject();
-        loginRequest.put("username", "A.RADWAN789");
+        loginRequest.put("userName", "A.RADWAN789");
         loginRequest.put("password", "R123456");
         return loginRequest;
 

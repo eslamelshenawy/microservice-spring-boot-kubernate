@@ -12,6 +12,7 @@
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/controller/LoginController.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/service/UserAuthDetailsService.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/constatnts/TestCommons.java
+/home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/client/EmployeeClient.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/api/GatewayApi.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/constatnts/EntityConstants.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/client/DBClient.java
@@ -37,3 +38,4 @@
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/dto/SignupRequest.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/config/auth/UserPrincipal.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/response/Response.java
+/home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/service/UserDetailsService.java
