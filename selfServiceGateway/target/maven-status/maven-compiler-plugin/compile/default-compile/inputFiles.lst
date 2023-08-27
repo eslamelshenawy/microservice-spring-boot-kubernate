@@ -8,11 +8,11 @@
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/exceptions/BusinessException.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/repository/UserRepository.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/filter/JwtAuthenticationFilter.java
+/home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/service/LookupService.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/exceptions/BusinessExceptionInterface.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/controller/LoginController.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/service/UserAuthDetailsService.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/constatnts/TestCommons.java
-/home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/client/EmployeeClient.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/api/GatewayApi.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/constatnts/EntityConstants.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/client/DBClient.java
@@ -27,7 +27,6 @@
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/controller/AuthController.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/entity/User.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/config/auth/JwtAuthenticationResponse.java
-/home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/service/LanguageService.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/exceptions/ErrorCodes.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/util/Constant.java
 /home/work/new/com.it-ranks/selfServiceGateway/src/main/java/vmware/services/gateway/GatewayApplication.java

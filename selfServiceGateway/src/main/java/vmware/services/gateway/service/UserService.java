@@ -47,16 +47,4 @@ public class UserService {
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
 
-    public ResponseEntity<Response<User>> addUser(User input) {
-        // Check if the email already exists in the database
-        Optional<User> existingUser = userRepository.findByEmail(input.getEmail());
-        if (existingUser.isPresent()) {
-            throw new RuntimeBusinessException(NOT_ACCEPTABLE, U$0002, input.getEmail());
-        }
-        input.setPassword(new BCryptPasswordEncoder().encode(input.getPassword()));
-        User user = userRepository.save(input);
-        Response<User> response = Response.<User>builder().ResponseMessage("success add User").data(user).ResponseCode(200).build();
-        return ResponseEntity.ok(response);
-    }
-
 }

@@ -45,8 +45,7 @@ public class LoginProcedure {
             result.put("result", callableStatement.getString(1));
             int pUserId = (int) result.get("p_user_id");
             if (pUserId != 0) {
-                alterSession(lang, pUserId);
-                Employee info = getInfo(pUserId);
+                Employee info = getInfo(lang, pUserId);
                 result.put("employeeData", info);
             }
         } catch (SQLException e) {
@@ -70,7 +69,8 @@ public class LoginProcedure {
 
     }
 
-    public Employee getInfo(int id) {
+    public Employee getInfo(String lang, int id) {
+        alterSession(lang, id);
         final Employee[] employee = {null};
 
         String sql = "SELECT DISP_NAME, D_TITLE, JOB_NAME, D_SEX, IMAGE FROM xxmob.xxx_mob_hr_emp_main_v WHERE person_id = ?";

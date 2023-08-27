@@ -4,13 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import vmware.services.gateway.entity.Employee;
 import vmware.services.gateway.entity.Language;
-import vmware.services.gateway.entity.User;
 import vmware.services.gateway.response.Response;
-import vmware.services.gateway.service.LanguageService;
+import vmware.services.gateway.service.LookupService;
 
 import java.util.List;
 
@@ -20,11 +18,15 @@ public class LookupController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LookupController.class);
     @Autowired
-    LanguageService languageService;
+    LookupService lookupService;
 
     @GetMapping("/languages")
     public ResponseEntity<Response<List<Language>>>  getLanguages() {
-        return languageService.AllLanguage();
+        return lookupService.AllLanguage();
+    }
+    @GetMapping("/info/{pUserId}")
+    public ResponseEntity<Response<Employee>>  getInfo(@RequestHeader("Accept-Language") String lang , @PathVariable Integer pUserId) {
+        return lookupService.getInfo(lang,pUserId);
     }
 
 }

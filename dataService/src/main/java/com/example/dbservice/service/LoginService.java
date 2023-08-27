@@ -33,8 +33,8 @@ public class LoginService {
         loginProcedure.alterSession(lang, pUserId);
     }
 
-    public Employee getInfo(Integer pUserId) {
+    public Employee getInfo(String lang,Integer pUserId) {
         LOGGER.info("get info ", ".......get info");
-        return loginProcedure.getInfo(pUserId);
+        return loginProcedure.getInfo(lang,pUserId);
     }
 }

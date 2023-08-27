@@ -19,6 +19,7 @@ vmware/services/gateway/GatewayApplication.class
 vmware/services/gateway/util/Constant.class
 vmware/services/gateway/entity/User.class
 vmware/services/gateway/client/DBClient.class
+vmware/services/gateway/service/LookupService.class
 vmware/services/gateway/config/RibbonConfiguration.class
 vmware/services/gateway/service/JWTTokenProvider.class
 vmware/services/gateway/controller/AuthController.class
@@ -28,7 +29,6 @@ vmware/services/gateway/controller/LoginController.class
 vmware/services/gateway/exceptions/BusinessExceptionInterface.class
 vmware/services/gateway/config/MethodSecurityConfig.class
 vmware/services/gateway/api/GatewayApi.class
-vmware/services/gateway/client/EmployeeClient.class
 vmware/services/gateway/util/StringUtils.class
 vmware/services/gateway/exceptions/ErrorResponseHandler.class
 vmware/services/gateway/config/SecurityConfig.class
@@ -38,5 +38,4 @@ vmware/services/gateway/service/UserAuthDetailsService.class
 vmware/services/gateway/dto/UserDto.class
 vmware/services/gateway/entity/Employee.class
 vmware/services/gateway/service/UserService.class
-vmware/services/gateway/service/LanguageService.class
 vmware/services/gateway/config/auth/UserPrincipal.class

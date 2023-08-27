@@ -29,8 +29,8 @@ public class LoginController {
     }
 
     @GetMapping(value ="/info/{pUserId}")
-    public Employee getInfo(@PathVariable Integer pUserId){
-        return loginService.getInfo(pUserId);
+    public Employee getInfo(@RequestHeader("Accept-Language") String lang ,@PathVariable Integer pUserId){
+        return loginService.getInfo(lang,pUserId);
     }
 
 

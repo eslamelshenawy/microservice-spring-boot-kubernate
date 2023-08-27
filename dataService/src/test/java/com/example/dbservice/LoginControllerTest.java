@@ -32,7 +32,7 @@ public class LoginControllerTest {
         HttpEntity<?> request = getHttpEntity(requestJson.toString(), "NOT FOUND", "AMERICAN");
         ResponseEntity<String> res = template.exchange("/Login", POST, request, String.class);
         assertEquals(HttpStatus.valueOf(200), res.getStatusCode());
-        assertEquals("{\"result\":\"1\",\"employeeDate\":null,\"p_user_id\":1014804,\"employeeData\":null}", res.getBody());
+        assertEquals("{\"result\":\"1\",\"p_user_id\":1014804,\"employeeData\":null}", res.getBody());
     }
 
     @Test

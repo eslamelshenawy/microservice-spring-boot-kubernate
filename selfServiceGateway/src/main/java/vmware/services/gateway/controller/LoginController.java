@@ -45,18 +45,27 @@ public class LoginController {
 
     @PostMapping("/Login")
     public ResponseEntity signIn(@RequestBody LoginRequest loginRequest, @RequestHeader("Accept-Language") String lang) {
+
         Map<String, Object> loginData = dbClient.login(loginRequest, lang);
-        log.info("loginData Created {}", loginData);
+
         Object employeeDataObject = loginData.get("employeeData");
+
         Object result = loginData.get("result");
+
         log.info("employeeDataObject Created {}", employeeDataObject);
+
         Object user_id = loginData.get("p_user_id");
+
         Long user_id_long = Long.parseLong(user_id.toString());
+
         log.info("user_id Created {}", user_id);
+
         if (user_id_long == 0) {
+
             log.info("RuntimeBusinessException {}", result);
             throw new RuntimeBusinessException(String.valueOf(result));
         }
+
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(loginRequest.getPassword());
         User u1 = new User();
