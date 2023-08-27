@@ -22,7 +22,6 @@ vmware/services/gateway/client/DBClient.class
 vmware/services/gateway/service/LookupService.class
 vmware/services/gateway/config/RibbonConfiguration.class
 vmware/services/gateway/service/JWTTokenProvider.class
-vmware/services/gateway/controller/AuthController.class
 vmware/services/gateway/exceptions/ErrorCodes.class
 vmware/services/gateway/constatnts/TestCommons.class
 vmware/services/gateway/controller/LoginController.class
