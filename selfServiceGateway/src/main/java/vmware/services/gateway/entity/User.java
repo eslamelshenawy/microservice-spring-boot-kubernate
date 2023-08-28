@@ -21,10 +21,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private String title;
+    @Column(name = "jop_name")
+    private String jopName;
     @Column(unique=true)
     private String email;
     private String password;
     private String role;
+    @Lob
+    private byte[] IMAGE;
 
 
     public UserDto mapUsertoUserDto() {

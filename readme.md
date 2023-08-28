@@ -100,5 +100,9 @@ kubectl logs <pod_name> -n <namespace_name>
  sudo service orcale-xe start
  ```
 
+```bash 
+ minikube delete -p minikube-cluster-1
+  ```
+
 ```
 

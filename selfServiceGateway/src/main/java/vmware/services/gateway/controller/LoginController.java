@@ -21,6 +21,7 @@ import vmware.services.gateway.exceptions.RuntimeBusinessException;
 import vmware.services.gateway.service.JWTTokenProvider;
 import vmware.services.gateway.service.UserService;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.springframework.http.HttpStatus.NOT_ACCEPTABLE;
@@ -75,6 +76,10 @@ public class LoginController {
 
         String token = jwtTokenProvider.generateToken((UserPrincipal) user);
         log.info("Token Created {}", token);
-        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+        Map<String, Object> employeeDataMap = new HashMap<>();
+        employeeDataMap.put("employee", employeeDataObject);
+        employeeDataMap.put("token", new JwtAuthenticationResponse(token));
+        log.info("employee {}", employeeDataMap);
+        return ResponseEntity.ok(employeeDataMap);
     }
 }
